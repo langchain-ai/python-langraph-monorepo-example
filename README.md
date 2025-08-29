@@ -62,3 +62,17 @@ Each agent's `langgraph.json` specifies the shared package dependencies using re
 ## Usage
 
 Each agent can be run independently using the LangGraph CLI, and both will have access to the shared utility functions via the dependency configuration.
+
+### Agent 1
+
+```bash
+langgraph build -t python-monorepo-agent-1 -c apps/agent1/langgraph.json
+langgraph up -c apps/agent1/langgraph.json --image IMAGE_ID_GENERATED_ABOVE
+```
+
+### Agent 2
+
+```bash
+langgraph build -t python-monorepo-agent-2 -c apps/agent2/langgraph.json
+langgraph up -c apps/agent2/langgraph.json --image IMAGE_ID_GENERATED_ABOVE
+```
