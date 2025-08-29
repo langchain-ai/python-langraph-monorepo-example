@@ -41,27 +41,16 @@ python-monorepo-example/
 - **`libs/shared/`**: Real Python package with `pyproject.toml`, containing utility functions
 - **`libs/common/`**: Faux package (directory with Python files, no `pyproject.toml`)
 
+### Shared dependencies
+- There is a root `pyproject.toml` that contains shared dependencies for all your agents
+
 ### Agent Configuration
-- Each agent has `langgraph.json` with `"dependencies": ["../../libs/shared", "../../libs/common"]`
-- This mirrors the JS monorepo pattern where shared packages are referenced via configuration rather than individual package dependencies
-- Each agent has its own `pyproject.toml` for LangGraph-specific dependencies
-
-### LangGraph Implementation
-- Simple single-node graphs that demonstrate importing from both shared packages
-- Each agent outputs: `"[COMMON] Agent1/2 says: Hello from shared library! (timestamp)"`
-- Follows the same pattern as the JS example but using Python/LangGraph
-
-## Dependencies
-
-The root `pyproject.toml` contains shared dependencies:
-- `langgraph>=0.6.0,<0.7.0`
-- `langchain-core>=0.2.14`
-
-Each agent's `langgraph.json` specifies the shared package dependencies using relative paths, allowing the LangGraph CLI to properly resolve the imports.
+- Each agent has `langgraph.json` with `"dependencies": ["../../libs/shared", "../../libs/common", "."]`
+- Each agent has its own `pyproject.toml` for agent-specific dependencies
 
 ## Usage
 
-Each agent can be run independently using the LangGraph CLI, and both will have access to the shared utility functions via the dependency configuration.
+Each agent can be run independently using the LangGraph CLI, and both will have access to the shared utility functions via the dependency configuration. For monorepo support, you can run your build command from the root, getting the benefits of the shared dependencies.
 
 ### Agent 1
 
