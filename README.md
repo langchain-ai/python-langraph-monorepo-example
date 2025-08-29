@@ -1,6 +1,6 @@
 # Python Monorepo Example
 
-A Python monorepo example demonstrating LangGraph agents with shared packages, similar to the JavaScript version in `../isaac-js-graph`.
+A Python monorepo example demonstrating LangGraph agents with shared packages.
 
 ## Structure
 
