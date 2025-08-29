@@ -1,4 +1,4 @@
-# Python Monorepo Example
+# LangGraph Monorepo Example
 
 A Python monorepo example demonstrating LangGraph agents with shared packages.
 
